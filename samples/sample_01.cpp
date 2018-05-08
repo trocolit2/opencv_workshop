@@ -24,6 +24,7 @@ int main( int argc, char** argv )
     // cv::Mat image_1f = cv::Mat::zeros(500,500, CV_32FC1);
     // cv::Mat image_3f = cv::Mat::zeros(500,500, CV_32FC3);
 
+    //show the image size, and the number of channels
     std::cout << " IMAGE_1b SIZE " << image_1b.size()
               << " | CHANNEL " << image_1b.channels()
               << std::endl;
@@ -32,13 +33,46 @@ int main( int argc, char** argv )
               << " | CHANNEL " << image_3b.channels()
               << std::endl;
 
-
-
+    // show the black images
     cv::imshow( "image_1b", image_1b);
     cv::imshow( "image_3b", image_3b);
     // cv::imshow( "image_1f", image_1f);
     // cv::imshow( "image_3f", image_3f);
-    cv::waitKey(0);
+
+    // wait press any key to continuos
+    cv::waitKey();
+
+////////////////////////////////////
+    // set a pixel color in gray
+    image_1b[250][250] = 255;
+
+    // set a pixel color in RGB
+    image_3b[250][249][0] = 255;
+    image_3b[250][250][1] = 255;
+    image_3b[250][251][2] = 255;
+
+    cv::imshow( "image_1b", image_1b);
+    cv::imshow( "image_3b", image_3b);
+
+    cv::waitKey();
+
+////////////////////////////////////////////////////////
+    for (size_t i = 10; i < 200; i++)
+      for (size_t j = 20; j < 300; j++) {
+        image_1b[i][j] = 255;
+      }
+
+    for (size_t i = 10; i < 200; i++)
+      for (size_t j = 20; j < 300; j++) {
+        image_3b[i][j][0] = 255;
+        image_3b[i][j][1] = 255 - (j % 256);
+        image_3b[i][j][2] = (i % 256);
+      }
+
+
+    cv::imshow( "image_1b", image_1b);
+    cv::imshow( "image_3b", image_3b);
+    cv::waitKey();
 
     return 0;
 }
