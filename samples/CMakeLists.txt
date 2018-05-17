@@ -6,7 +6,7 @@ project(samples)
 ######################
 
 ## DEFINE MAIN PATHS
-set(bin_path ${PROJECT_BINARY_DIR}/bin)
+set(bin_path ${PROJECT_BINARY_DIR})
 set(source_path ${PROJECT_SOURCE_DIR}/src)
 
 find_package(OpenCV 3.4 REQUIRED)
