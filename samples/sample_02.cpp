@@ -7,7 +7,7 @@
 #include <iostream>
 #include <string>
 
-#define DATASET_PATH "../../../dataset/"
+#define DATASET_PATH "../../dataset/"
 #define PICTURE_FILE "image_00.jpg"
 #define VIDEO_FILE "video_00.mp4"
 int main(int argc, char const *argv[]) {
@@ -30,7 +30,7 @@ int main(int argc, char const *argv[]) {
   while(cap_video.read(input)){
     std::cout << "Frame: " << ++i << std::endl;
     cv::imshow( video, input );
-    cv::waitKey(100);
+    cv::waitKey(1);
   }
 
 //////////////////////////////////
